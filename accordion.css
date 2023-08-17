@@ -7,9 +7,12 @@
 .accordion .accordion-item {
     border-bottom: 1px solid #e5e5e5;
 }
+.accordion button[aria-expanded=true] {
+    color: #4D4D4D;
+}
 
-.accordion .accordion.item button[aira-expanded=true] {
-    border-bottom: 1px solid #03b5d2
+.accordion .accordion.item button[aria-expanded=true] {
+    border-bottom: 1px solid #03b5d2;
 }
 
 .accordion button {
@@ -38,67 +41,37 @@
     border: 1px solid #03b5d2;
 }
 .accordion button .accordion-title {
-    padding: 1em 1.5em 1 em 0;
+    padding: 1em 1.5em 1em 0;
 }
 
-.accordion button .icon {
-    display: inline-block;
-    position: absolute;
-    top: 18px;
-    right: 0;
-    width: 22px;
-    height: 22px;
-    border: 1px solid;
-    border-radius: 22px;
-}
 
-.accordion button .icon::before {
-    display: block;
-    position: absolute;
-    content: "";
-    top: 9px;
-    left: 5px;
-    width: 10px;
-    height: 2px;
-    background: currentColor;
+.icon {
+          float: right;
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          border: solid;
+          border-width: 0 2px 2px 0;
+          transform: rotate(45deg);
 }
+ 
+ /*
+.accordion button[aria-expanded=true] + .icon  {
+  transform: rotate(180deg);
+} */
 
-.accordion button .icon::after {
-    display: block;
-    position: absolute;
-    content: "";
-    top: 5px;
-    left: 9px;
-    width: 2px;
-    height: 10px;
-    background: currentColor;
-}
+.accordion-content {
+        max-height: 500px;
+        overflow: hidden;
+        transition: max-height 1s ease-in-out;
+    }
 
-.accordion button[aria-expanded=true] {
-    color: #4D4D4D;
-}
-
-.accordion button[aria-expanded=true] .icon::after {
-    width:0;
-}
-
-.accordion button[aria-expanded=true] + .accordion-content {
-    opacity: 1;
-    max-width: 9em;
-    transition: all 200ms linear;
-    will-change: opacity, max-height;
-}
-
-.accordion .accordion-content {
-    opacity: 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: opacity 200ms linear, max-height 200ms linear;
-    will-change: opacity, max-height;
-}
+.accordion button[aria-expanded=false] + .accordion-content  {
+        max-height: 0;
+        transition: max-height 1s ease-in-out;
+    }
 
 .accordion .accordion-content p {
     font-size: 1rem;
     font-weight: 300;
-    margin: 2em 0;
 }
